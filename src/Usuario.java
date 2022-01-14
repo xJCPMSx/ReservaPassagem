@@ -1,3 +1,6 @@
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+
 public class Usuario {
 	
 	private String nome;
@@ -5,11 +8,14 @@ public class Usuario {
 	private boolean cadastrado = false;
 	private char rota;
 	private boolean rotaReservada = false;
-		
+
+	Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+	String data = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(timestamp.getTime());
+	
 	public void cadastrar(String nome, String cpf) {
 		this.nome = nome;
 		this.cpf = cpf;
-		System.out.println("Usuario " + this.nome + " cadastrado");
+		System.out.println(data+" "+this.nome+" foi cadastrado");
 		this.cadastrado = true;
 	}
 	
@@ -31,6 +37,7 @@ public class Usuario {
 	}
 	
 	public void reservarPassagem(char rota) {
+		
 		
 		if(rota == 'A' || rota == 'B') {
 			System.out.println("Passagem reservada: Rota "+ this.rota + " escolhida");
