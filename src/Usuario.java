@@ -15,7 +15,7 @@ public class Usuario {
 	public void cadastrar(String nome, String cpf) {
 		this.nome = nome;
 		this.cpf = cpf;
-		System.out.println(data+" "+this.nome+" foi cadastrado");
+		System.out.println(data+ " O usuario "+this.nome+" foi cadastrado");
 		this.cadastrado = true;
 	}
 	
@@ -40,7 +40,7 @@ public class Usuario {
 		
 		
 		if(rota == 'A' || rota == 'B') {
-			System.out.println("Passagem reservada: Rota "+ this.rota + " escolhida");
+			System.out.println(data+" Passagem reservada por "+this.nome+" Rota "+ this.rota + " escolhida");
 			//this.rota = rota;
 		}else {
 			System.out.println("Precisa estar cadastrado");
@@ -48,7 +48,7 @@ public class Usuario {
 	}
 	public void cancelarReserva() {
 		if (rotaReservada) {
-			System.out.println("Cancelando passagem reservada: Rota "+ this.rota + " cancelada");
+			System.out.println(data+" O usuario "+this.nome+" cancelou a passagem reservada: Rota "+ this.rota + " cancelada");
 			this.rota = ' ';
 		}else {
 			System.out.println("Nenhuma reserva foi efetuada!");
