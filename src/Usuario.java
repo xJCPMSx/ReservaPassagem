@@ -41,13 +41,15 @@ public class Usuario {
 		
 		if(rota == 'A' || rota == 'B') {
 			System.out.println(data+" Passagem reservada por "+this.nome+" Rota "+ this.rota + " escolhida");
-			//this.rota = rota;
+			this.rota = rota;
+		}else if(rota != 'A' || rota != 'B'){
+			System.out.println("Entrada Iválida");
 		}else {
 			System.out.println("Precisa estar cadastrado");
 		}
 	}
 	public void cancelarReserva() {
-		if (rotaReservada) {
+		if (rotaReservada && this.rota != ' ') {
 			System.out.println(data+" O usuario "+this.nome+" cancelou a passagem reservada: Rota "+ this.rota + " cancelada");
 			this.rota = ' ';
 		}else {
