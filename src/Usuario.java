@@ -2,7 +2,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 public class Usuario {
-	
+
 	private String nome;
 	private String cpf;
 	private boolean cadastrado = false;
@@ -11,51 +11,52 @@ public class Usuario {
 
 	Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 	String data = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(timestamp.getTime());
-	
+
 	public void cadastrar(String nome, String cpf) {
 		this.nome = nome;
 		this.cpf = cpf;
-		System.out.println(data+ " O usuario "+this.nome+" foi cadastrado");
+		System.out.println(data + " O usuario " + this.nome + " foi cadastrado");
 		this.cadastrado = true;
 	}
-	
+
 	public void visualizarRotas() {
-		
-		System.out.println("A - 3 conexÃµes, tempo total de voo 3 horas\n"
-				+ "B - Voo direto, tempo total de voo 6 horas\n");
+
+		System.out.println(
+				"A - 3 conexÃµes, tempo total de voo 3 horas\n" + "B - Voo direto, tempo total de voo 6 horas\n");
 	}
-	
+
 	public void reservarRota(char rota) {
-		
-		if(cadastrado) {
+
+		if (cadastrado) {
 			this.rota = Character.toUpperCase(rota);
 			reservarPassagem(this.rota);
 			this.rotaReservada = true;
-		}else {
+		} else {
 			System.out.println("Precisa estar cadastrado");
 		}
 	}
-	
+
 	public void reservarPassagem(char rota) {
-		
-		
-		if(rota == 'A' || rota == 'B') {
-			System.out.println(data+" Passagem reservada por "+this.nome+" Rota "+ this.rota + " escolhida");
+
+		if (rota == 'A' || rota == 'B') {
+			System.out.println(data + " Passagem reservada por " + this.nome + " Rota " + this.rota + " escolhida");
 			this.rota = rota;
-		}else if(rota != 'A' || rota != 'B'){
+		} else if (rota != 'A' || rota != 'B') {
 			System.out.println("Entrada Iválida");
-		}else {
+		} else {
 			System.out.println("Precisa estar cadastrado");
 		}
 	}
+
 	public void cancelarReserva() {
 		if (rotaReservada && this.rota != ' ') {
-			System.out.println(data+" O usuario "+this.nome+" cancelou a passagem reservada: Rota "+ this.rota + " cancelada");
+			System.out.println(data + " O usuario " + this.nome + " cancelou a passagem reservada: Rota " + this.rota
+					+ " cancelada");
 			this.rota = ' ';
-		}else {
+		} else {
 			System.out.println("Nenhuma reserva foi efetuada!");
 		}
-		
+
 	}
-	
+
 }
